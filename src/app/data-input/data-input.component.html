@@ -1,0 +1,42 @@
+
+<app-side-nav></app-side-nav>
+<div class="container">
+  <h2>Add Expense Report</h2>
+  <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="year">Year:</label>
+      <select formControlName="reportYear" class="form-control">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="head">Head:</label>
+      <select formControlName="head" class="form-control">
+        <option *ngFor="let head of heads" [value]="head">{{ head }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="school">School:</label>
+      <select formControlName="school" class="form-control">
+        <option *ngFor="let school of schools" [value]="school">{{ school }}</option>
+      </select>
+    </div>
+
+    <div formArrayName="expenseDesc">
+      <div *ngFor="let expense of expenseDesc.controls; let i = index" [formGroupName]="i" class="form-group">
+        <label for="description">Expense Description:</label>
+        <input formControlName="description" type="text" class="form-control" />
+        <label for="amount">Amount:</label>
+        <input formControlName="amount" type="number" class="form-control" min="0" />
+
+        <button type="button" (click)="removeExpenseField(i)" class="btn btn-danger">- Remove</button>
+      </div>
+    </div>
+
+    <button type="button" (click)="addExpenseField()" class="btn btn-primary">+ Add Another Expense</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  </form>
+</div>

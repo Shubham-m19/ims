@@ -1,0 +1,52 @@
+<div class="background">
+  <img id="img" src="shubham2.jpg" alt="Background Image">
+  <div class="container">
+    <h2>Create an Account</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="signupForm.controls['name'].invalid && signupForm.controls['name'].touched">
+          Name is required
+        </div>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email">
+        <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched">
+          Enter a valid email
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password">
+        <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched">
+          Password must be at least 6 characters long, and contain letters, numbers, and special symbols
+        </div>
+      </div>
+
+      <div id="role">
+        <label  for="role">Role:</label>
+        <select id="role" formControlName="role">
+          <option value="">Select Role</option>
+          <option value="PO">PO</option>
+          <option value="clerk">Clerk</option>
+        </select>
+        <div *ngIf="signupForm.controls['role'].invalid && signupForm.controls['role'].touched">
+          Role is required
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+
+      <div *ngIf="message">{{ message }}</div>
+
+      <!-- Link to Login page for existing users -->
+      <div class="extra-options">
+        <span>Already have an account? <a routerLink="/login">Login</a></span>
+      </div>
+    </form>
+  </div>
+</div>

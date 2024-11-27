@@ -1,0 +1,112 @@
+/* Main Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #dfdaff6c; /* Creamy white background */
+  color: black; /* Default text color */
+  padding: 20px;
+  height: 100vh;
+  position: fixed; /* Sidebar remains fixed */
+  transition: width 0.3s ease; /* Smooth transition for width changes */
+  padding-top: 110px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for freshness */
+  padding-top: 30px;
+}
+
+/* Sidebar Title */
+.sidebar-title {
+  padding: 10px 20px;
+  background-color: #7cafe1;; /* Dark background for title */
+  color: white; /* White text for contrast */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 30px; /* Space after title */
+  border-radius: 100px;
+  padding: 1%;
+}
+
+/* Sidebar Logo */
+.logo img {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* Navigation Items */
+.nav-items .nav-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigation Text */
+.nav-items .nav-item span {
+  margin-left: 10px;
+  font-size: 22px; /* Increased font size */
+  font-weight: 500; /* Optional: make the text a bit bolder */
+  color: black; /* Text color */
+}
+
+/* Hover Effect for Navigation Items */
+.nav-items .nav-item:hover {
+  background-color: #e0e0d1; /* Subtle hover effect */
+  border-radius: 5px;
+  color: black; /* Ensure text remains black */
+}
+
+/* Media Query for Smaller Screens */
+@media only screen and (max-width: 1300px) {
+  .sidebar {
+    width: 100px; /* Collapse the sidebar for smaller screens */
+    padding: 10px;
+  }
+
+  .nav-items .nav-item span {
+    display: none; /* Hide the text in the nav items */
+  }
+}
+
+/* Mobile View for Screens Less than 768px */
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    width: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+
+  .sidebar.active {
+    width: 250px; /* Sidebar expands when active */
+  }
+
+  .nav-items .nav-item span {
+    display: none; /* Hide text for mobile view */
+  }
+}
+
+/* Collapsed Sidebar Styles */
+.sidebar.collapsed {
+  width: 100px;
+}
+
+.sidebar.collapsed .nav-items .nav-item span {
+  display: none; /* Hide text when collapsed */
+}
+
+/* Optional Collapse Button (Styled like a hamburger menu) */
+.collapse-btn {
+  font-size: 30px;
+  color: black; /* Change color to black for consistency */
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Optional: Increase font size for collapse button text */
+.collapse-btn {
+  font-size: 35px;
+}

@@ -1,0 +1,64 @@
+<app-side-nav></app-side-nav>
+
+<div class="report-container">
+  <h2>Data Report</h2>
+
+  <!-- Filters Section -->
+  <div class="filters">
+    <label for="yearFilter">Year:</label>
+    <select id="yearFilter" [(ngModel)]="yearFilter" (change)="applyFilters()">
+      <option value="">All</option>
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+
+    <label for="headFilter">Head:</label>
+    <select id="headFilter" [(ngModel)]="headFilter" (change)="applyFilters()">
+      <option value="">All</option>
+      <option *ngFor="let head of heads" [value]="head">{{ head }}</option>
+    </select>
+
+    <label for="schoolFilter">School:</label>
+    <select id="schoolFilter" [(ngModel)]="schoolFilter" (change)="applyFilters()">
+      <option value="">All</option>
+      <option *ngFor="let school of schools" [value]="school">{{ school }}</option>
+    </select>
+  </div>
+
+  <!-- Table Section -->
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Serial Number</th>
+        <th>Year</th>
+        <th>Head</th>
+        <th>School</th>
+        <th>Expenses Desc.</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of paginatedReports; let i = index">
+        <td>{{ i + 1 + (currentPage - 1) * itemsPerPage }}</td>
+        <td>{{ report.reportYear }}</td>
+        <td>{{ report.head }}</td>
+        <td>{{ report.school }}</td>
+        <td>{{ report.expenseDesc }}</td>
+        <td>{{ report.amount | currency: 'INR':'symbol':'1.2-2' }}</td>
+        <td>{{ report.date | date: 'shortDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Message if no reports are found -->
+  <div *ngIf="paginatedReports.length === 0" class="alert alert-info">
+    No reports found for the selected filters.
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="paginatedReports.length < itemsPerPage">Next</button>
+  </div>
+</div>

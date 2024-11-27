@@ -1,0 +1,21 @@
+<div class="sidebar">
+  <!-- Sidebar Title -->
+  <div class="sidebar-title">
+    <h3>Po - IMS</h3> <!-- Title for the sidebar -->
+  </div>
+
+  <div class="nav-items">
+    <div class="nav-item">
+      <fa-icon [icon]="faDashboard"></fa-icon>
+      <span [routerLink]="['/po-dashboard']">Dashboard</span> <!-- Redirect to Dashboard -->
+    </div>
+    <div class="nav-item">
+      <fa-icon [icon]="faFileAlt"></fa-icon>
+      <span [routerLink]="['/po-report-page']">Data Report</span> <!-- Redirect to Data Report -->
+    </div>
+    <div class="nav-item" (click)="onLogout()">
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+      <span>Logout</span>
+    </div>
+  </div>
+</div>

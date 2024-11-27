@@ -1,0 +1,53 @@
+/* General Layout */
+.layout {
+  display: flex;
+  flex-direction: column; /* Default to column layout */
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Header */
+app-header {
+  width: 100%;
+  background-color: #c7b9ff31; /* Example: Light purple shade */
+  color: white;
+  position: fixed; /* Sticks the header at the top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures it stays on top */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 10px 20px;
+}
+
+/* Content Below Header */
+.content {
+  margin-top: 70px; /* Adjust based on header height */
+  padding: 20px;
+  flex-grow: 1; /* Allow content to expand */
+  background-color: #f9f9f900; /* Light background color */
+  box-sizing: border-box;
+}
+
+/* Ensure Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+  app-header {
+    padding: 10px; /* Adjust header padding */
+    font-size: 14px; /* Smaller font for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  app-header {
+    font-size: 12px; /* Further reduce font size for very small screens */
+  }
+  .content {
+    padding: 10px;
+  }
+}
+
+/* Scrollbar Styling (Optional) */
+.content {
+  overflow-y: auto; /* Allow vertical scrolling if content is long */
+}

@@ -1,0 +1,28 @@
+/* Footer Styles */
+.footer {
+  background-color: #697a8a4f; /* Dark background color */
+  color: white;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+  height: 40px;
+  padding: 2px;
+}
+
+/* Footer Content */
+.footer-content p {
+  margin: 5px 0;
+}
+
+/* Media Query for Smaller Screens */
+@media only screen and (max-width: 768px) {
+  .footer {
+    font-size: 12px; /* Adjust font size for mobile */
+    padding: 15px;
+  }
+}

@@ -1,0 +1,210 @@
+body {
+  background-color: #f4f7fa; /* Light background color for the whole page */
+  font-family: 'Arial', sans-serif; /* Font for better readability */
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Remove default body margin */
+}
+
+.container1 {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff; /* White background for the card */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  max-width: 900px;
+  width: 100%; /* Ensure container spans available width */
+  border-left: 5px solid #2c3e50; /* Left border for emphasis */
+  text-align: center;
+  margin-top: 2%;
+  margin-left: 23%;
+  padding-left: 0%;
+  padding-top: 6%;
+}
+/* Form styling */
+.filter-form {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: center; /* Center items horizontally */
+  margin: 20px 0; /* Margin above and below the form */
+}
+
+/* Grouping form elements */
+.form-group {
+  margin-bottom: 15px; /* Space between form elements */
+  width: 100%; /* Full width of the container */
+  max-width: 300px; /* Limit max width for better appearance */
+}
+
+/* Label styling */
+label {
+  font-weight: bold; /* Bold text for labels */
+  margin-bottom: 5px; /* Space below labels */
+  color: #333; /* Dark color for better readability */
+}
+
+/* Dropdown styling */
+select.form-control {
+  width: 100%; /* Full width of the container */
+  padding: 10px; /* Padding for better touch targets */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 16px; /* Consistent font size */
+  background-color: #ffffff; /* White background */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+/* Dropdown focus effect */
+select.form-control:focus {
+  border-color: #2c3e50; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Button styling */
+.btn {
+  background-color: #2c3e50; /* Bootstrap primary color */
+  color: #ffffff; /* White text */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Padding for buttons */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #2c3e50; /* Darker shade on hover */
+}
+
+/* Disable the selected state in the dropdown */
+option[disabled] {
+  display: none; /* Hide the disabled option */
+}
+
+
+.dashboard-title {
+  color: #2c3e50; /* Primary color for heading */
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0px; /* Space between form elements */
+  margin-bottom: 30px;
+}
+
+h3.section-title {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #2c3e50; /* Section header in primary color */
+  border-bottom: 2px solid #2c3e50;
+  display: inline-block; /* Ensure underline is close to the text */
+}
+
+.form-group {
+  flex-grow: 1;
+  max-width: 250px; /* Limit width of the input field */
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+  border-color: #2c3e50;
+  outline: none;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  padding-left: 20px;
+  margin-left: 25px;
+  margin-top: 25px;
+  
+
+}
+
+button:hover {
+  background-color: #2c3e50;
+}
+
+.table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th, .table td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.table-striped tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .filter-form {
+    flex-direction: column;
+    gap: 10px; /* Adjust gap for mobile */
+  }
+
+  h2, h3 {
+    font-size: 20px; /* Adjust font size for headings */
+  }
+
+  button {
+    font-size: 14px;
+    
+  }
+
+  .form-group {
+    max-width: 100%;
+  }
+  select.form-control {
+    width: 250px; /* Fixed width for dropdown */
+    padding: 10px; /* Padding for better touch targets */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+  }
+
+  
+}

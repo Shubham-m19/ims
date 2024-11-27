@@ -1,0 +1,103 @@
+/* Main container styling */
+.container {
+  max-width: 600px; /* Set a maximum width for the form container */
+  margin: 0 auto; /* Center the container */
+  padding: 30px; /* Add padding inside the container */
+  background-color: #ffffff; /* White background for the form */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  background-color: #f8f9fa;
+  padding: 30px;
+  width: 100%;
+  margin-top: 0%;
+  margin-left: 38%;
+  padding-left: 2%;
+  padding-top: 3%;
+  
+}
+
+/* Form heading styling */
+.container h2 {
+  font-size: 24px; /* Font size for the heading */
+  color: #343a40; /* Dark gray color for the text */
+  margin-bottom: 20px; /* Space below the heading */
+  text-align: center; /* Center the heading text */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px; /* Space below each form group */
+}
+
+/* Label styling */
+.form-group label {
+  display: block; /* Labels take up the full width */
+  margin-bottom: 8px; /* Space below the label */
+  font-weight: 600; /* Bold labels */
+  color: #495057; /* Dark gray color for the labels */
+}
+
+/* Input and select styling */
+input, select {
+  width: 100%; /* Full width inputs */
+  padding: 12px; /* Padding inside the inputs */
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: 6px; /* Rounded corners for inputs */
+  font-size: 16px; /* Font size for the text inside inputs */
+  color: #495057; /* Dark gray color for input text */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Input and select focus effect */
+input:focus, select:focus {
+  border-color: #80bdff; /* Change border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Soft blue glow effect */
+}
+
+/* Button styling for Submit */
+.btn-success {
+  width: 100%; /* Full width button */
+  padding: 12px; /* Padding inside the button */
+  background-color: #34495e; /* Green background */
+  border: none; /* Remove default border */
+  border-radius: 6px; /* Rounded corners */
+  color: white; /* White text color */
+  font-size: 18px; /* Font size for button text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Button styling for Add Another Expense */
+.btn-primary {
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Button styling for Remove */
+.btn-danger {
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Alert success message styling */
+.alert {
+  margin-top: 20px; /* Space above the alert */
+  padding: 10px; /* Padding inside the alert */
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text color */
+  border: 1px solid #c3e6cb; /* Light green border */
+  border-radius: 5px; /* Rounded corners for alert */
+}

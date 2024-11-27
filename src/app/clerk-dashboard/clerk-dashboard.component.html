@@ -1,0 +1,92 @@
+
+<app-side-nav></app-side-nav>
+<div class="container1">
+  <h2 class="dashboard-title">Expense Dashboard</h2>
+
+  <form [formGroup]="dashboardForm" (ngSubmit)="onSubmit()" class="filter-form">
+    <div class="form-group">
+      <label for="year">Select Year:</label>
+      <select id="year" formControlName="year" class="form-control" required>
+        <option value="" disabled selected>Select a year</option>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </form>
+
+  <div *ngIf="headWiseExpenses.length > 0">
+    <h3 class="section-title">Head-wise Expenses</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Head</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of headWiseExpenses">
+          <td>{{ expense[0] }}</td>
+          <td>{{ expense[1] | currency:'INR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="schoolWiseExpenses.length > 0">
+    <h3 class="section-title">School-wise Expenses</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>School</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of schoolWiseExpenses">
+          <td>{{ expense[0] }}</td>
+          <td>{{ expense[1] | currency:'INR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="yearWiseSchoolExpenses.length > 0">
+    <h3 class="section-title">Year-wise School Expenses</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>School</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of yearWiseSchoolExpenses">
+          <td>{{ expense[0] }}</td>
+          <td>{{ expense[1] }}</td>
+          <td>{{ expense[2] | currency:'INR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="sumExpensesBySchoolYearwise.length > 0">
+    <h3 class="section-title">Sum of Expenses by School Year-wise</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>School</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of sumExpensesBySchoolYearwise">
+          <td>{{ expense[0] }}</td>
+          <td>{{ expense[1] }}</td>
+          <td>{{ expense[2] | currency:'INR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
