@@ -10,6 +10,8 @@ import { DataInputComponent } from './data-input/data-input.component';
 import { PoSideNavComponent } from './po-side-nav/po-side-nav.component';
 import { ReportPageComponent } from './report-page/report-page.component';
 import { PoReportPageComponent } from './po-report-page/po-report-page.component';
+import { PiChartComponent } from './pi-chart/pi-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -23,7 +25,8 @@ const routes: Routes = [
   { path: 'po-side-nav', component:  PoSideNavComponent},
   { path: 'report-page', component:  ReportPageComponent},
   { path: 'po-report-page', component:  PoReportPageComponent},
-
+  {path: 'pi-chart', component: PiChartComponent},
+  {path: 'barchart', component: BarChartComponent}
 
 
 

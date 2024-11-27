@@ -1,0 +1,17 @@
+<div style="text-align: center;">
+    <h2>Yearly Expense Pie Chart</h2>
+    <ngx-charts-pie-chart
+      [view]="view"
+      [results]="single"
+      [gradient]="gradient"
+      [legend]="showLegend"
+      [labels]="showLabels"
+      [doughnut]="isDoughnut"
+      [legendPosition]="legendPosition"
+      [scheme]="colorScheme"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)">
+    </ngx-charts-pie-chart>
+  </div>
+  

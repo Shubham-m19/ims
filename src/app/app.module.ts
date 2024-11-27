@@ -20,8 +20,9 @@ import { PoReportPageComponent } from './po-report-page/po-report-page.component
 import { CommonModule } from '@angular/common';
 import { ExpenseReportComponent } from './expense-report/expense-report.component';
 import { FooterComponent } from './footer/footer.component';
-
-
+import { PiChartComponent } from './pi-chart/pi-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FooterComponent } from './footer/footer.component';
     PoReportPageComponent,
     ExpenseReportComponent,
     FooterComponent,
-
+    PiChartComponent,
+    BarChartComponent // This belongs in declarations
 
   ],
   imports: [
@@ -51,8 +53,8 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     RouterModule,
     CommonModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    NgxChartsModule // Library module should only be in imports
 
 
   ],
