@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-data-input',
@@ -9,16 +10,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataInputComponent {
   dataForm: FormGroup;
-  years = [2020, 2021, 2022, 2023,2024];
+  years = [2020, 2021, 2022, 2023, 2024];
   heads = ['Dr. Anjali Mehta', 'Mr. Rajesh Sharma', 'Ms. Priya Kapoor'];
   schools = ['Greenwood High', 'Lakeside Academy', 'Riverside International School'];
   private apiUrl = 'http://localhost:8080/api/expenses/add'; // Backend API endpoint
-  successMessage: string = ''; // To hold the success message
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     // Initialize form with FormBuilder
     this.dataForm = this.fb.group({
-      reportYear: ['', Validators.required], // Updated to match the backend
+      reportYear: ['', Validators.required],
       head: ['', Validators.required],
       school: ['', Validators.required],
       expenseDesc: this.fb.array([this.createExpense()]) // Initialize with one expense field
@@ -33,7 +33,7 @@ export class DataInputComponent {
   // Create a new expense form group
   createExpense(): FormGroup {
     return this.fb.group({
-      description: ['', Validators.required], // Renamed for clarity
+      description: ['', Validators.required],
       amount: [null, [Validators.required, Validators.min(0)]]
     });
   }
@@ -53,6 +53,11 @@ export class DataInputComponent {
   // Submit the form data
   onSubmit() {
     if (this.dataForm.invalid) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Invalid Data',
+        text: 'Please fill out all required fields correctly.',
+      });
       return; // Prevent submission if form is invalid
     }
 
@@ -60,7 +65,7 @@ export class DataInputComponent {
     let totalAmount = 0;
 
     this.expenseDesc.controls.forEach(expense => {
-      expenses.push(`${expense.get('description')?.value}`); // Get expense description
+      expenses.push(expense.get('description')?.value); // Get expense description
       totalAmount += expense.get('amount')?.value; // Sum the amounts
     });
 
@@ -79,17 +84,29 @@ export class DataInputComponent {
     this.http.post(this.apiUrl, formData).subscribe(
       response => {
         console.log('Data submitted successfully:', response);
-        this.successMessage = 'Data stored successfully!';
-        // Optionally reset the form or provide feedback
-        setTimeout(() => {
-          this.successMessage = ''; // Clear the success message
-          this.dataForm.reset(); // Reset the form after success
-          this.expenseDesc.clear(); // Clear expenses after reset
-          this.expenseDesc.push(this.createExpense()); // Re-add the initial expense field
-        }, 2000);
+
+        // Show SweetAlert success message
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Data stored successfully!',
+          showConfirmButton: false,
+          timer: 2000
+        });
+
+        // Reset form after success
+        this.dataForm.reset();
+        this.expenseDesc.clear();
+        this.expenseDesc.push(this.createExpense());
       },
       error => {
         console.error('Error submitting data:', error);
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Submission Failed',
+          text: 'Something went wrong. Please try again later.',
+        });
       }
     );
   }

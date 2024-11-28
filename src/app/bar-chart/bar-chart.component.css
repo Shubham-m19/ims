@@ -1,58 +1,96 @@
-/* Container to hold the chart */
+/* Center the chart content in the middle of the page */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(to bottom, #f5f7fa, #c3cfe2); /* Light gradient background */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Container for the chart */
 ngx-charts-bar-vertical-2d {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: 400px; /* You can adjust this based on your preference */
-  }
-  
-  /* Style for the chart legend */
-  .ngx-charts-legend {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  /* Styling the X and Y axis labels */
-  .axis-label {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  /* Bar chart bars */
-  .bar {
-    transition: all 0.3s ease;
-  }
-  
-  /* Styling for each bar when hovering */
-  .bar:hover {
-    opacity: 0.8;
-    cursor: pointer;
-  }
-  
-  /* Styling the X axis (years) */
-  .x-axis text {
-    font-size: 12px;
-    font-weight: bold;
-  }
-  
-  /* Styling the Y axis labels */
-  .y-axis text {
-    font-size: 12px;
-    font-weight: bold;
-  }
-  
-  /* Ensure the chart takes the full container space */
-  :host {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Optional: Add some padding around the chart */
-  .chart-container {
-    padding: 20px;
-  }
-  
+  display: block;
+  margin: 0 auto;
+  width: 80%; /* Responsive width */
+  max-width: 900px; /* Limit max width */
+  height: 400px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Add some inner spacing */
+}
+
+/* Styling for the chart legend */
+.ngx-charts-legend {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555; /* Soft text color */
+}
+
+/* Styling for X and Y axis labels */
+.axis-label {
+  font-size: 16px;
+  font-weight: bold;
+  fill: #333; /* Darker text for better readability */
+}
+
+/* Styling X axis (years) */
+.x-axis text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #666; /* Neutral color */
+}
+
+/* Styling Y axis labels */
+.y-axis text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #666;
+}
+
+/* Bar chart bars */
+.bar {
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* Hover effect on bars */
+.bar:hover {
+  transform: scale(1.05); /* Slightly enlarge */
+  opacity: 0.9;
+  cursor: pointer;
+  fill: #1f77b4; /* Highlight bar color */
+}
+
+/* Add padding around the chart for better spacing */
+.chart-container {
+  padding: 20px;
+}
+
+/* Add some styling to the Y axis grid lines */
+.ngx-charts .gridline {
+  stroke: #e0e0e0; /* Light gray grid lines */
+  stroke-width: 0.5;
+}
+
+/* Add rounded corners to the bars */
+.bar {
+  rx: 5px; /* Rounded corners */
+  ry: 5px;
+}
+
+/* Optional: Style for tooltip (if applicable) */
+.ngx-tooltip {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #333;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+}

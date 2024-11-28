@@ -8,13 +8,13 @@ import { ExpenseReportService } from '../expense.service'; // Update path as nec
   templateUrl: './po-dashboard.component.html',
   styleUrls: ['./po-dashboard.component.css']
 })
-export class PoDashboardComponent implements OnInit { 
+export class PoDashboardComponent implements OnInit {
   dashboardForm: FormGroup;
   headWiseExpenses: any[] = [];
   schoolWiseExpenses: any[] = [];
   yearWiseSchoolExpenses: any[] = [];
   sumExpensesBySchoolYearwise: any[] = [];
-  
+
   years: number[] = []; // Array to hold years
 
   constructor(

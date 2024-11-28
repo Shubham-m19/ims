@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 @Component({
   selector: 'app-signup',
@@ -24,11 +25,35 @@ export class SignupComponent {
 
   onSubmit() {
     if (this.signupForm.valid) {
-      this.userService.signup(this.signupForm.value).subscribe(response => {
-        this.message = 'User registered successfully!';
-        this.router.navigate(['/login']); // Redirect to login after signup
-      }, error => {
-        this.message = 'Error during signup!';
+      this.userService.signup(this.signupForm.value).subscribe(
+        response => {
+          // SweetAlert2 for success
+          Swal.fire({
+            icon: 'success',
+            title: 'Registration Successful',
+            text: 'User registered successfully!',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            this.router.navigate(['/login']); // Redirect to login after the alert
+          });
+        },
+        error => {
+          // SweetAlert2 for error
+          Swal.fire({
+            icon: 'error',
+            title: 'Registration Failed',
+            text: 'Error during signup!',
+            confirmButtonText: 'OK'
+          });
+        }
+      );
+    } else {
+      // SweetAlert2 for invalid form
+      Swal.fire({
+        icon: 'warning',
+        title: 'Invalid Form',
+        text: 'Please fill out all required fields correctly.',
+        confirmButtonText: 'OK'
       });
     }
   }
